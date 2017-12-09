@@ -111,6 +111,9 @@ void MainWindow::initRouters(vector<Router*>& routers) {
 	router8->initLable(ui->label_23);
 	router9->initLable(ui->label_24);
 
+	//table grid init
+	//router1->
+
 	routers.push_back(router1);
 	routers.push_back(router2);
 	routers.push_back(router3);
@@ -164,6 +167,7 @@ void MainWindow::initTable(QStringList header)
 	ui->tableWidget_2->setColumnCount(2);
 	ui->tableWidget_2->setRowCount(8);
 	ui->tableWidget_2->setHorizontalHeaderLabels(header);
+	
 
 	tables.push_back(ui->tableWidget_2);
 
@@ -216,7 +220,7 @@ void MainWindow::addLightSlot(Router* router, QMovie* movie)
 
 void MainWindow::removeLightSlot(Router* router)
 {
-	router->setLable(nullptr);
+	router->setLable(new QMovie);
 }
 
 void MainWindow::UpdateSlot()

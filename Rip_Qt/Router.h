@@ -38,6 +38,8 @@ public:
     void setLable(QMovie* movie);
     void removeLable();
     void initLable(QLabel* lable);
+	//QTableWidget* currentTable;
+	//int 
 
 
 

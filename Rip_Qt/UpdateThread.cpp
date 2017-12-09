@@ -26,6 +26,7 @@ void UpdateThread::run()
 		//这个地方应该把 router 里面的方法写到这里来  也就是把更新操作放在这里  然后信号与槽 主要起一个删除和添加红绿灯效果
 
 		//==========================================
+	int i = 0;
 		for (auto router:routers)
 		{
 			emit addLightSignal(router,movie);
@@ -40,16 +41,24 @@ void UpdateThread::run()
 					//TODO::这有一个巨大的坑，也就是当我们判断一个元素是否存在的时候必须要用==end而不是不等于，肯定不准
 					if (index == neighbor->m_DV.end()) {
 						neighbor->m_DV.insert(make_pair(dv.first, dv.second + 1));
-
+						//TODO::可以进行修改表项的操作
 					}
 					else {//表项存在
 						  //如果路径短就添加
 						if (index->second > dv.second - 1) {
 							neighbor->m_DV.insert(make_pair(index->first, index->second + 1));
-
+							//TODO::可以进行修改表项的操作
 						}
 					}
 				}
+
+				//int j = 0;
+				//for (auto dv : routers.at(i)->getDV()) {
+				//	emit addItemSignal(i, j, dv);
+				//	++j;
+				//}
+				//++i;
+
 				sleep(1);
 				emit removeLightSignal(neighbor);
 
@@ -68,16 +77,7 @@ void UpdateThread::run()
 
 
 
-		//for (int i = 0; i < routers.size(); ++i) {
 
-		//	emit addLightSignal(i, movie);
-		//	int j = 0;
-		//	for (auto dv : routers.at(i)->getDV()) {
-		//		emit addItemSignal(i, j, dv);
-		//		++j;
-		//		sleep(0.5);
-		//	}
-		//}
 }
 
 
