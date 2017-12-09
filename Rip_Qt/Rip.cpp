@@ -27,7 +27,10 @@ MainWindow::MainWindow(QWidget *parent) :QMainWindow(parent), ui(new Ui::MainWin
 	connect(ui->pushButton, SIGNAL(clicked()), this, SLOT(startThread()));
 	//绑定多线程的激活添加方法 到当前真真的添加item的代码
 	connect(thread, SIGNAL(addItemSignal(int, int, pair<string, int>)), this, SLOT(addItemSlot(int, int, pair<string, int>)));
-
+	//绑定添加灯的方法
+	connect(thread, SIGNAL(addLightSignal(Router*, QMovie*)), this, SLOT(addLightSlot(Router*, QMovie*)));
+	//绑定删除灯的方法
+	connect(thread, SIGNAL(removeLightSignal(Router*)), this, SLOT(removeLightSlot(Router*)));
 
 
 	
@@ -99,14 +102,14 @@ void MainWindow::initRouters(vector<Router*>& routers) {
 	router9->initDV();
 	//lable init
 	router1->initLable(ui->label_17);
-	router2->initLable(ui->label_18);
-	router3->initLable(ui->label_19);
+	router2->initLable(ui->label_25);
+	router3->initLable(ui->label_18);
 	router4->initLable(ui->label_20);
 	router5->initLable(ui->label_21);
-	router6->initLable(ui->label_22);
-	router7->initLable(ui->label_23);
-	router8->initLable(ui->label_24);
-	router9->initLable(ui->label_25);
+	router6->initLable(ui->label_19);
+	router7->initLable(ui->label_22);
+	router8->initLable(ui->label_23);
+	router9->initLable(ui->label_24);
 
 	routers.push_back(router1);
 	routers.push_back(router2);
@@ -207,7 +210,13 @@ void MainWindow::initTable(QStringList header)
 
 void MainWindow::addLightSlot(Router* router, QMovie* movie)
 {
-	router->sendInfoToNeighbor(movie);
+	router->setLable(movie);
+	movie->start();
+}
+
+void MainWindow::removeLightSlot(Router* router)
+{
+	router->setLable(nullptr);
 }
 
 void MainWindow::UpdateSlot()

@@ -30,7 +30,9 @@ private:
 signals:
 	 void addItemSignal(int i, int j, pair<string, int> dv);
  signals:
-	 void addLightSignal(int i,QMovie* movie);
+	 void addLightSignal(Router* router, QMovie* movie);
+ signals:
+	 void removeLightSignal(Router* router);
 
 };
 

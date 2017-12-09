@@ -36,6 +36,7 @@ private:
 
 	private slots:
 	void addLightSlot(Router* router, QMovie* movie);
+	void removeLightSlot(Router* router);
 
 };
 void watchCurrent(vector<Router*> &routers);

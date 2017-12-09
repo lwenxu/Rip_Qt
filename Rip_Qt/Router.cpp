@@ -7,7 +7,7 @@
 
 Router::Router() = default;
 
-Router::Router(const string& name, QWidget* widget=0)
+Router::Router(const string& name, QWidget* widget)
 {
 	this->m_Name = name;
 }
@@ -84,9 +84,7 @@ void Router::printCurrentDV() {
  * 向相邻路由器发送信息
  */
 void Router::sendInfoToNeighbor(QMovie* movie) {
-    this->setLable(movie);
     for (Router* router:m_Neighbor) {
-        router->setLable(movie);
         for (auto dv:m_DV) {
             auto index = (router->m_DV).find(dv.first);
             //如果该表项不存在就添加
@@ -102,8 +100,6 @@ void Router::sendInfoToNeighbor(QMovie* movie) {
                 }
             }
         }
-        movie->start();
-        router->removeLable();
 //        cout<<"============="<<endl;
     }
     auto index = m_DV.find(this->m_Name);
@@ -112,7 +108,6 @@ void Router::sendInfoToNeighbor(QMovie* movie) {
     }else{
         m_DV.erase(index);
     }
-    this->removeLable();
 }
 
 Router::~Router() = default;
