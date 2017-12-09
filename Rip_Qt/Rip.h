@@ -25,11 +25,17 @@ public:
 	void on_pushButton_2_clicked();
 	void startThread();
 	void addItemSlot(int i, int j, pair<string, int> dv);
+	
+
 private:
 	Ui::MainWindow *ui;
 	vector<Router*> routers;
 	vector<QTableWidget*> tables;
 	UpdateThread* thread;
+	void initTable(QStringList header);
+
+	private slots:
+	void addLightSlot(Router* router, QMovie* movie);
 
 };
 void watchCurrent(vector<Router*> &routers);

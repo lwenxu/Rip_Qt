@@ -22,7 +22,7 @@ public:
     QLabel* label;
 public:
     Router();
-    explicit Router(const string& name);
+    explicit Router(const string& name,QWidget* widget=0);
 //    Router(map<Router*,int> DV,vector<string> neighbor);
     virtual ~Router();
     void addNeighbor(Router* router);
@@ -39,8 +39,6 @@ public:
     void removeLable();
     void initLable(QLabel* lable);
 
-public slots:
-	void addLightSlot(int i,QMovie* movie);
 
 
 };

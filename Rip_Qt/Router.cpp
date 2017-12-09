@@ -7,6 +7,11 @@
 
 Router::Router() = default;
 
+Router::Router(const string& name, QWidget* widget=0)
+{
+	this->m_Name = name;
+}
+
 void Router::addNeighbor(Router *router) {
     this->m_Neighbor.push_back(router);
 }
@@ -36,11 +41,6 @@ void Router::removeLable()
 void Router::initLable(QLabel *lable)
 {
     this->label=lable;
-}
-
-void Router::addLightSlot(int i, QMovie* movie)
-{
-
 }
 
 void Router::deleteDV(string name) {
@@ -77,10 +77,6 @@ void Router::printCurrentDV() {
 //        cout<<"ss"<<endl;
     }
     cout<<"========================"<<endl;
-}
-
-Router::Router(const string& name) {
-    this->m_Name=name;
 }
 
 

@@ -9,61 +9,15 @@
 #include <QPixmap>
 #include <QMovie>
 #include <QDebug>
+#include "QObject"
 
 MainWindow::MainWindow(QWidget *parent) :QMainWindow(parent), ui(new Ui::MainWindow)
 {
 	ui->setupUi(this);
 	QStringList header;
 	header << "des" << "vec";
-
-	ui->tableWidget_2->setColumnCount(2);
-	ui->tableWidget_2->setRowCount(8);
-	ui->tableWidget_2->setHorizontalHeaderLabels(header);
-
-	tables.push_back(ui->tableWidget_2);
-
-	ui->tableWidget_3->setColumnCount(2);
-	ui->tableWidget_3->setRowCount(8);
-	ui->tableWidget_3->setHorizontalHeaderLabels(header);
-	tables.push_back(ui->tableWidget_3);
-
-	ui->tableWidget_4->setColumnCount(2);
-	ui->tableWidget_4->setRowCount(8);
-	ui->tableWidget_4->setHorizontalHeaderLabels(header);
-	tables.push_back(ui->tableWidget_4);
-
-	ui->tableWidget_5->setColumnCount(2);
-	ui->tableWidget_5->setRowCount(8);
-	ui->tableWidget_5->setHorizontalHeaderLabels(header);
-	tables.push_back(ui->tableWidget_5);
-
-	ui->tableWidget_6->setColumnCount(2);
-	ui->tableWidget_6->setRowCount(8);
-	ui->tableWidget_6->setHorizontalHeaderLabels(header);
-	tables.push_back(ui->tableWidget_6);
-
-	ui->tableWidget_7->setColumnCount(2);
-	ui->tableWidget_7->setRowCount(8);
-	ui->tableWidget_7->setHorizontalHeaderLabels(header);
-	tables.push_back(ui->tableWidget_7);
-
-	ui->tableWidget_8->setColumnCount(2);
-	ui->tableWidget_8->setRowCount(8);
-	ui->tableWidget_8->setHorizontalHeaderLabels(header);
-	tables.push_back(ui->tableWidget_8);
-
-	ui->tableWidget_9->setColumnCount(2);
-	ui->tableWidget_9->setRowCount(8);
-	ui->tableWidget_9->setHorizontalHeaderLabels(header);
-	tables.push_back(ui->tableWidget_9);
-
-	ui->tableWidget_10->setColumnCount(2);
-	ui->tableWidget_10->setRowCount(8);
-	ui->tableWidget_10->setHorizontalHeaderLabels(header);
-	tables.push_back(ui->tableWidget_10);
-
+	initTable(header);
 	initRouters(routers);
-
 	this->thread = new UpdateThread(routers,tables,nullptr);
 	//connect(thread, SIGNAL(UpdateSignal()), this, SLOT(UpdateSlot()));
 	////connect(ui->pushButton, SIGNAL(clicked()), this, SLOT(startThread()));
@@ -75,6 +29,8 @@ MainWindow::MainWindow(QWidget *parent) :QMainWindow(parent), ui(new Ui::MainWin
 	connect(thread, SIGNAL(addItemSignal(int, int, pair<string, int>)), this, SLOT(addItemSlot(int, int, pair<string, int>)));
 
 
+
+	
 
 
 }
@@ -200,8 +156,61 @@ void MainWindow::addItemSlot(int i,int j,pair<string,int> dv)
 	tables.at(i)->setItem(j, 1, new QTableWidgetItem(vec));
 }
 
+void MainWindow::initTable(QStringList header)
+{
+	ui->tableWidget_2->setColumnCount(2);
+	ui->tableWidget_2->setRowCount(8);
+	ui->tableWidget_2->setHorizontalHeaderLabels(header);
+
+	tables.push_back(ui->tableWidget_2);
+
+	ui->tableWidget_3->setColumnCount(2);
+	ui->tableWidget_3->setRowCount(8);
+	ui->tableWidget_3->setHorizontalHeaderLabels(header);
+	tables.push_back(ui->tableWidget_3);
+
+	ui->tableWidget_4->setColumnCount(2);
+	ui->tableWidget_4->setRowCount(8);
+	ui->tableWidget_4->setHorizontalHeaderLabels(header);
+	tables.push_back(ui->tableWidget_4);
+
+	ui->tableWidget_5->setColumnCount(2);
+	ui->tableWidget_5->setRowCount(8);
+	ui->tableWidget_5->setHorizontalHeaderLabels(header);
+	tables.push_back(ui->tableWidget_5);
+
+	ui->tableWidget_6->setColumnCount(2);
+	ui->tableWidget_6->setRowCount(8);
+	ui->tableWidget_6->setHorizontalHeaderLabels(header);
+	tables.push_back(ui->tableWidget_6);
+
+	ui->tableWidget_7->setColumnCount(2);
+	ui->tableWidget_7->setRowCount(8);
+	ui->tableWidget_7->setHorizontalHeaderLabels(header);
+	tables.push_back(ui->tableWidget_7);
+
+	ui->tableWidget_8->setColumnCount(2);
+	ui->tableWidget_8->setRowCount(8);
+	ui->tableWidget_8->setHorizontalHeaderLabels(header);
+	tables.push_back(ui->tableWidget_8);
+
+	ui->tableWidget_9->setColumnCount(2);
+	ui->tableWidget_9->setRowCount(8);
+	ui->tableWidget_9->setHorizontalHeaderLabels(header);
+	tables.push_back(ui->tableWidget_9);
+
+	ui->tableWidget_10->setColumnCount(2);
+	ui->tableWidget_10->setRowCount(8);
+	ui->tableWidget_10->setHorizontalHeaderLabels(header);
+	tables.push_back(ui->tableWidget_10);
+}
+
+void MainWindow::addLightSlot(Router* router, QMovie* movie)
+{
+	router->sendInfoToNeighbor(movie);
+}
+
 void MainWindow::UpdateSlot()
 {
 
 }
-

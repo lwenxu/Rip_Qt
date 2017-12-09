@@ -71,13 +71,13 @@
     <CustomBuild Include="UpdateThread.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
+    <CustomBuild Include="Router.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GeneratedFiles\ui_Rip.h">
       <Filter>Generated Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Router.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
