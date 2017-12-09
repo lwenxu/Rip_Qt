@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/Rip">
+        <file>images/ss.gif</file>
+        <file>images/top.png</file>
+    </qresource>
+</RCC>
