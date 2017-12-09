@@ -38,6 +38,11 @@ void Router::initLable(QLabel *lable)
     this->label=lable;
 }
 
+void Router::addLightSlot(int i, QMovie* movie)
+{
+
+}
+
 void Router::deleteDV(string name) {
     this->m_DV.erase(name);
 }
@@ -102,7 +107,7 @@ void Router::sendInfoToNeighbor(QMovie* movie) {
             }
         }
         movie->start();
-//        router->removeLable();
+        router->removeLable();
 //        cout<<"============="<<endl;
     }
     auto index = m_DV.find(this->m_Name);
@@ -111,7 +116,7 @@ void Router::sendInfoToNeighbor(QMovie* movie) {
     }else{
         m_DV.erase(index);
     }
-//    this->removeLable();
+    this->removeLable();
 }
 
 Router::~Router() = default;

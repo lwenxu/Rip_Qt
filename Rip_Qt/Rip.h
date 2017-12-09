@@ -24,7 +24,7 @@ public:
 	void UpdateSlot();
 	void on_pushButton_2_clicked();
 	void startThread();
-	void addItemSlot();
+	void addItemSlot(int i, int j, pair<string, int> dv);
 private:
 	Ui::MainWindow *ui;
 	vector<Router*> routers;

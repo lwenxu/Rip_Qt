@@ -11,31 +11,27 @@ UpdateThread::UpdateThread(vector<Router*> routers, vector<QTableWidget*> tables
 {
 	this->routers = routers;
 	this->tables=tables;
+	movie = new QMovie(":/Rip/images/ss.gif");
+	qRegisterMetaType<pair<string, int>>("pair<string, int>");
+}
+
+UpdateThread::~UpdateThread()
+{
+	delete movie;
 }
 
 void UpdateThread::run()
 {
-
-    emit UpdateSignal();
-
-}
-
-void UpdateThread::UpdateSlot()
-{
-	qDebug("asdfasfsf");
-	QMovie *movie = new QMovie(":/Rip/images/ss.gif");
-
 	for (int i = 0; i < routers.size(); ++i) {
-		routers.at(i)->sendInfoToNeighbor(movie);
+		emit addLightSignal(i,movie);
+		//routers.at(i)->sendInfoToNeighbor(movie);
 		int j = 0;
 		for (auto dv : routers.at(i)->getDV()) {
-			tables.at(i)->setItem(j, 0, new QTableWidgetItem(dv.first.c_str()));
-			char vec[2];
-			itoa(dv.second, vec, 10);
-			tables.at(i)->setItem(j, 1, new QTableWidgetItem(vec));
+			emit addItemSignal(i,j,dv);
 			++j;
+			sleep(1);
 		}
-		sleep(1);
 	}
-	delete movie;
 }
+
+

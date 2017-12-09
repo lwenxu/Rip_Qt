@@ -39,6 +39,9 @@ public:
     void removeLable();
     void initLable(QLabel* lable);
 
+public slots:
+	void addLightSlot(int i,QMovie* movie);
+
 
 };
 

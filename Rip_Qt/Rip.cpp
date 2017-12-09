@@ -72,7 +72,7 @@ MainWindow::MainWindow(QWidget *parent) :QMainWindow(parent), ui(new Ui::MainWin
 	//绑定按钮的点击操作到开启一个线程
 	connect(ui->pushButton, SIGNAL(clicked()), this, SLOT(startThread()));
 	//绑定多线程的激活添加方法 到当前真真的添加item的代码
-	connect(thread, SIGNAL(addItemSignal()), this, SLOT(addItemSlot()));
+	connect(thread, SIGNAL(addItemSignal(int, int, pair<string, int>)), this, SLOT(addItemSlot(int, int, pair<string, int>)));
 
 
 
@@ -192,9 +192,12 @@ void MainWindow::startThread() {
 	thread->start();
 }
 
-void MainWindow::addItemSlot()
+void MainWindow::addItemSlot(int i,int j,pair<string,int> dv)
 {
-
+	tables.at(i)->setItem(j, 0, new QTableWidgetItem(dv.first.c_str()));
+	char vec[2];
+	itoa(dv.second, vec, 10);
+	tables.at(i)->setItem(j, 1, new QTableWidgetItem(vec));
 }
 
 void MainWindow::UpdateSlot()
