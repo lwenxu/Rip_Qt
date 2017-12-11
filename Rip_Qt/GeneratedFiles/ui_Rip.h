@@ -63,7 +63,6 @@ public:
     QTableWidget *tableWidget_4;
     QTableWidget *tableWidget_5;
     QTableWidget *tableWidget_10;
-    QTableWidget *tableWidget_11;
     QTextEdit *logs;
     QWidget *layoutWidget1;
     QVBoxLayout *verticalLayout;
@@ -74,13 +73,23 @@ public:
     QHBoxLayout *horizontalLayout_2;
     QLabel *label_3;
     QLabel *neighborText;
+    QLabel *label_4;
+    QLabel *label_5;
+    QLabel *label_6;
+    QLabel *label_7;
+    QLabel *label_16;
+    QLabel *label_26;
+    QLabel *label_27;
+    QLabel *label_28;
+    QLabel *label_29;
+    QLabel *label_30;
     QStatusBar *statusBar;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(1289, 898);
+        MainWindow->resize(1289, 923);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         graphicsView = new QGraphicsView(centralWidget);
@@ -118,7 +127,7 @@ public:
         label_25->setStyleSheet(QStringLiteral("image: url(:/images/light.gif);"));
         layoutWidget = new QWidget(centralWidget);
         layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
-        layoutWidget->setGeometry(QRect(560, 70, 141, 171));
+        layoutWidget->setGeometry(QRect(550, 70, 141, 171));
         verticalLayout_18 = new QVBoxLayout(layoutWidget);
         verticalLayout_18->setSpacing(6);
         verticalLayout_18->setContentsMargins(11, 11, 11, 11);
@@ -126,11 +135,15 @@ public:
         verticalLayout_18->setContentsMargins(0, 0, 0, 0);
         pushButton = new QPushButton(layoutWidget);
         pushButton->setObjectName(QStringLiteral("pushButton"));
+        pushButton->setStyleSheet(QString::fromUtf8("background-color: rgb(5, 206, 79);\n"
+"font: 14pt \"\345\276\256\350\275\257\351\233\205\351\273\221\";"));
 
         verticalLayout_18->addWidget(pushButton);
 
         pushButton_2 = new QPushButton(layoutWidget);
         pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
+        pushButton_2->setStyleSheet(QString::fromUtf8("background-color: rgb(231, 0, 0);\n"
+"font: 14pt \"\345\276\256\350\275\257\351\233\205\351\273\221\";"));
 
         verticalLayout_18->addWidget(pushButton_2);
 
@@ -188,12 +201,9 @@ public:
         tableWidget_10 = new QTableWidget(centralWidget);
         tableWidget_10->setObjectName(QStringLiteral("tableWidget_10"));
         tableWidget_10->setGeometry(QRect(770, 560, 221, 191));
-        tableWidget_11 = new QTableWidget(centralWidget);
-        tableWidget_11->setObjectName(QStringLiteral("tableWidget_11"));
-        tableWidget_11->setGeometry(QRect(1010, 560, 221, 191));
         logs = new QTextEdit(centralWidget);
         logs->setObjectName(QStringLiteral("logs"));
-        logs->setGeometry(QRect(40, 800, 1191, 71));
+        logs->setGeometry(QRect(40, 820, 1191, 71));
         layoutWidget1 = new QWidget(centralWidget);
         layoutWidget1->setObjectName(QStringLiteral("layoutWidget1"));
         layoutWidget1->setGeometry(QRect(940, 60, 271, 181));
@@ -244,6 +254,37 @@ public:
 
         verticalLayout->addLayout(horizontalLayout_2);
 
+        label_4 = new QLabel(centralWidget);
+        label_4->setObjectName(QStringLiteral("label_4"));
+        label_4->setGeometry(QRect(40, 780, 71, 51));
+        label_4->setStyleSheet(QStringLiteral("font: 19pt \"Consolas\";"));
+        label_5 = new QLabel(centralWidget);
+        label_5->setObjectName(QStringLiteral("label_5"));
+        label_5->setGeometry(QRect(60, 250, 54, 12));
+        label_6 = new QLabel(centralWidget);
+        label_6->setObjectName(QStringLiteral("label_6"));
+        label_6->setGeometry(QRect(130, 300, 54, 12));
+        label_7 = new QLabel(centralWidget);
+        label_7->setObjectName(QStringLiteral("label_7"));
+        label_7->setGeometry(QRect(150, 130, 54, 12));
+        label_16 = new QLabel(centralWidget);
+        label_16->setObjectName(QStringLiteral("label_16"));
+        label_16->setGeometry(QRect(220, 210, 54, 12));
+        label_26 = new QLabel(centralWidget);
+        label_26->setObjectName(QStringLiteral("label_26"));
+        label_26->setGeometry(QRect(270, 270, 54, 12));
+        label_27 = new QLabel(centralWidget);
+        label_27->setObjectName(QStringLiteral("label_27"));
+        label_27->setGeometry(QRect(280, 150, 54, 12));
+        label_28 = new QLabel(centralWidget);
+        label_28->setObjectName(QStringLiteral("label_28"));
+        label_28->setGeometry(QRect(250, 40, 54, 12));
+        label_29 = new QLabel(centralWidget);
+        label_29->setObjectName(QStringLiteral("label_29"));
+        label_29->setGeometry(QRect(390, 60, 54, 12));
+        label_30 = new QLabel(centralWidget);
+        label_30->setObjectName(QStringLiteral("label_30"));
+        label_30->setGeometry(QRect(450, 160, 54, 12));
         MainWindow->setCentralWidget(centralWidget);
         statusBar = new QStatusBar(MainWindow);
         statusBar->setObjectName(QStringLiteral("statusBar"));
@@ -266,8 +307,8 @@ public:
         label_23->setText(QString());
         label_24->setText(QString());
         label_25->setText(QString());
-        pushButton->setText(QApplication::translate("MainWindow", "\345\274\200\345\247\213", nullptr));
-        pushButton_2->setText(QApplication::translate("MainWindow", "\351\207\215\347\275\256", nullptr));
+        pushButton->setText(QApplication::translate("MainWindow", "Start", nullptr));
+        pushButton_2->setText(QApplication::translate("MainWindow", "Reset", nullptr));
         label->setText(QApplication::translate("MainWindow", "router1", nullptr));
         label_8->setText(QApplication::translate("MainWindow", "router2", nullptr));
         label_9->setText(QApplication::translate("MainWindow", "router3", nullptr));
@@ -281,6 +322,16 @@ public:
         currentText->setText(QString());
         label_3->setText(QApplication::translate("MainWindow", "\347\233\270\351\202\273\350\267\257\347\224\261\345\231\250\357\274\232", nullptr));
         neighborText->setText(QString());
+        label_4->setText(QApplication::translate("MainWindow", "Logs:", nullptr));
+        label_5->setText(QApplication::translate("MainWindow", "1", nullptr));
+        label_6->setText(QApplication::translate("MainWindow", "2", nullptr));
+        label_7->setText(QApplication::translate("MainWindow", "3", nullptr));
+        label_16->setText(QApplication::translate("MainWindow", "4", nullptr));
+        label_26->setText(QApplication::translate("MainWindow", "5", nullptr));
+        label_27->setText(QApplication::translate("MainWindow", "6", nullptr));
+        label_28->setText(QApplication::translate("MainWindow", "7", nullptr));
+        label_29->setText(QApplication::translate("MainWindow", "8", nullptr));
+        label_30->setText(QApplication::translate("MainWindow", "9", nullptr));
     } // retranslateUi
 
 };

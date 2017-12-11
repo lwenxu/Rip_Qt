@@ -17,6 +17,7 @@ MainWindow::MainWindow(QWidget *parent) :QMainWindow(parent), ui(new Ui::MainWin
 	QStringList header;
 	header << "des" << "vec";
 	initTable(header);
+	beautifyTable(tables);
 	initRouters(routers);
 	initCloumn();
 	this->thread = new UpdateThread(routers,tables,nullptr);
@@ -200,12 +201,32 @@ void MainWindow::updateItemSlot(int i, int j, pair<string, int> dv)
 }
 
 
+void MainWindow::beautifyTable(vector<QTableWidget*> tables)
+{
+	for (auto it=tables.begin(); it != tables.end(); ++it)
+	{
+		(*it)->setFrameShape(QFrame::NoFrame);
+		(*it)->horizontalHeader()->setStretchLastSection(true);;
+		(*it)->horizontalHeader()->resizeSection(0, 90);;
+		(*it)->horizontalHeader()->resizeSection(1, 20);;
+		(*it)->horizontalHeader()->resizeSection(1, 20);;
+		(*it)->horizontalHeader()->resizeSection(1, 20);;
+		(*it)->setFocusPolicy(Qt::NoFocus); //去除选中虚线框
+		(*it)->setAlternatingRowColors(true);
+		(*it)->horizontalHeader()->setStyleSheet("QHeaderView::section{background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgb(46,46,46),stop:1 rgb(66,66,66));color: rgb(210,210,210);;padding-left: 4px;border: 1px solid #383838;}");
+
+	}
+	
+}
+
 void MainWindow::initTable(QStringList header)
 {
 	ui->tableWidget_2->setColumnCount(2);
 	ui->tableWidget_2->setRowCount(9);
 	ui->tableWidget_2->setHorizontalHeaderLabels(header);
 	tables.push_back(ui->tableWidget_2);
+
+	
 
 	ui->tableWidget_3->setColumnCount(2);
 	ui->tableWidget_3->setRowCount(9);

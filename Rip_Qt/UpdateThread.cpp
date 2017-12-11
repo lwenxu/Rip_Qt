@@ -20,6 +20,7 @@ UpdateThread::~UpdateThread()
 	delete movie;
 }
 
+
 void UpdateThread::run()
 {
 

@@ -26,6 +26,7 @@ public:
 	void startThread();
 	void addItemSlot(int i, int j, pair<string, int> dv);
 	void updateItemSlot(int, int, pair<string, int>);
+	void beautifyTable(vector<QTableWidget*> tables);
 	
 
 private:
