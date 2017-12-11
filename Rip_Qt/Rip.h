@@ -20,11 +20,12 @@ public:
 
 	void initRouters(vector<Router *> &routers);
 	void releaseRouters(vector<Router *> &routers);
+	void initCloumn();
 	private slots:
-	void UpdateSlot();
 	void on_pushButton_2_clicked();
 	void startThread();
 	void addItemSlot(int i, int j, pair<string, int> dv);
+	void updateItemSlot(int, int, pair<string, int>);
 	
 
 private:
@@ -37,6 +38,7 @@ private:
 	private slots:
 	void addLightSlot(Router* router, QMovie* movie);
 	void removeLightSlot(Router* router);
+	void updateLogsSlot();
 
 };
 void watchCurrent(vector<Router*> &routers);

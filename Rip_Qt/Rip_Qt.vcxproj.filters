@@ -36,13 +36,16 @@
     <ClCompile Include="Rip.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Router.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UpdateThread.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="GeneratedFiles\Debug\moc_Rip.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Release\moc_Rip.cpp">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\qrc_Rip.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Debug\moc_UpdateThread.cpp">
@@ -51,33 +54,38 @@
     <ClCompile Include="GeneratedFiles\Release\moc_UpdateThread.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="Router.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="UpdateThread.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="GeneratedFiles\qrc_Rip.cpp">
+      <Filter>Generated Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="Rip.h">
-      <Filter>Header Files</Filter>
-    </CustomBuild>
     <CustomBuild Include="Rip.ui">
       <Filter>Form Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="Rip.qrc">
-      <Filter>Resource Files</Filter>
+    <CustomBuild Include="Rip.h">
+      <Filter>Header Files</Filter>
     </CustomBuild>
     <CustomBuild Include="UpdateThread.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="Router.h">
-      <Filter>Header Files</Filter>
+    <CustomBuild Include="Rip.qrc">
+      <Filter>Resource Files</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GeneratedFiles\ui_Rip.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
+    <ClInclude Include="Router.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="images\ss.gif">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\top.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

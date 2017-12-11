@@ -20,9 +20,10 @@ public:
     map<string,int> m_DV;
     vector<Router*> m_Neighbor;
     QLabel* label;
+	int index;
 public:
     Router();
-    explicit Router(const string& name,QWidget* widget=0);
+    explicit Router(const string& name,int index,QWidget* widget=0);
 //    Router(map<Router*,int> DV,vector<string> neighbor);
     virtual ~Router();
     void addNeighbor(Router* router);

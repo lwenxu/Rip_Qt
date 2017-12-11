@@ -7,9 +7,10 @@
 
 Router::Router() = default;
 
-Router::Router(const string& name, QWidget* widget)
+Router::Router(const string& name,int index, QWidget* widget)
 {
 	this->m_Name = name;
+	this->index = index;
 }
 
 void Router::addNeighbor(Router *router) {

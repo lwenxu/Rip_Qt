@@ -18,6 +18,7 @@ MainWindow::MainWindow(QWidget *parent) :QMainWindow(parent), ui(new Ui::MainWin
 	header << "des" << "vec";
 	initTable(header);
 	initRouters(routers);
+	initCloumn();
 	this->thread = new UpdateThread(routers,tables,nullptr);
 	//connect(thread, SIGNAL(UpdateSignal()), this, SLOT(UpdateSlot()));
 	////connect(ui->pushButton, SIGNAL(clicked()), this, SLOT(startThread()));
@@ -27,11 +28,16 @@ MainWindow::MainWindow(QWidget *parent) :QMainWindow(parent), ui(new Ui::MainWin
 	connect(ui->pushButton, SIGNAL(clicked()), this, SLOT(startThread()));
 	//绑定多线程的激活添加方法 到当前真真的添加item的代码
 	connect(thread, SIGNAL(addItemSignal(int, int, pair<string, int>)), this, SLOT(addItemSlot(int, int, pair<string, int>)));
+	//绑定多线程的激活添加方法 更新Item的代码
+	connect(thread, SIGNAL(updateItemSignal(int, int, pair<string, int>)), this, SLOT(updateItemSlot(int, int, pair<string, int>)));
 	//绑定添加灯的方法
 	connect(thread, SIGNAL(addLightSignal(Router*, QMovie*)), this, SLOT(addLightSlot(Router*, QMovie*)));
 	//绑定删除灯的方法
 	connect(thread, SIGNAL(removeLightSignal(Router*)), this, SLOT(removeLightSlot(Router*)));
-
+	//更新当前路由方法
+	connect(thread, SIGNAL(updateCurrentTextSignal(const QString&)), ui->currentText, SLOT(setText(const QString &)));
+	//更新邻居路由
+	connect(thread, SIGNAL(updateNeighborTextSignal(const QString&)), ui->neighborText, SLOT(setText(const QString &)));
 
 	
 
@@ -52,15 +58,15 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::initRouters(vector<Router*>& routers) {
-	auto * router1 = new Router("router1");
-	auto * router2 = new Router("router2");
-	auto * router3 = new Router("router3");
-	auto * router4 = new Router("router4");
-	auto * router5 = new Router("router5");
-	auto * router6 = new Router("router6");
-	auto * router7 = new Router("router7");
-	auto * router8 = new Router("router8");
-	auto * router9 = new Router("router9");
+	auto * router1 = new Router("router1",0);
+	auto * router2 = new Router("router2",1);
+	auto * router3 = new Router("router3",2);
+	auto * router4 = new Router("router4",3);
+	auto * router5 = new Router("router5",4);
+	auto * router6 = new Router("router6",5);
+	auto * router7 = new Router("router7",6);
+	auto * router8 = new Router("router8",7);
+	auto * router9 = new Router("router9",8);
 	//neighbor init
 	router1->addNeighbor(router2);
 	router1->addNeighbor(router3);
@@ -139,6 +145,27 @@ void MainWindow::releaseRouters(vector<Router*> &routers) {
 	}
 }
 
+void MainWindow::initCloumn()
+{
+	for (size_t i = 0; i < tables.size(); i++)
+	{
+		//第i个路由器对应的表
+		int index = routers.at(i)->index;
+		int j = 0;
+		for (auto dv : routers.at(i)->getDV())
+		{
+			int num=dv.first.substr(6, 1)[0]-'0'-1;
+			tables.at(index)->setItem(num, 0, new QTableWidgetItem(dv.first.c_str()));
+			char vec[2];
+			itoa(dv.second, vec, 10);
+			tables.at(index)->setItem(num, 1, new QTableWidgetItem(vec));
+			++j;
+		}
+
+
+	}
+}
+
 void MainWindow::on_pushButton_2_clicked()
 {
 	for (auto it1 = tables.begin(); it1 != tables.end(); ++it1) {
@@ -162,52 +189,59 @@ void MainWindow::addItemSlot(int i,int j,pair<string,int> dv)
 	tables.at(i)->setItem(j, 1, new QTableWidgetItem(vec));
 }
 
+void MainWindow::updateItemSlot(int i, int j, pair<string, int> dv)
+{
+	tables.at(i)->setItem(j, 0, new QTableWidgetItem(dv.first.c_str()));
+	char vec[2];
+	itoa(dv.second, vec, 10);
+	tables.at(i)->setItem(j, 1, new QTableWidgetItem(vec));
+}
+
+
 void MainWindow::initTable(QStringList header)
 {
 	ui->tableWidget_2->setColumnCount(2);
-	ui->tableWidget_2->setRowCount(8);
+	ui->tableWidget_2->setRowCount(9);
 	ui->tableWidget_2->setHorizontalHeaderLabels(header);
-	
-
 	tables.push_back(ui->tableWidget_2);
 
 	ui->tableWidget_3->setColumnCount(2);
-	ui->tableWidget_3->setRowCount(8);
+	ui->tableWidget_3->setRowCount(9);
 	ui->tableWidget_3->setHorizontalHeaderLabels(header);
 	tables.push_back(ui->tableWidget_3);
 
 	ui->tableWidget_4->setColumnCount(2);
-	ui->tableWidget_4->setRowCount(8);
+	ui->tableWidget_4->setRowCount(9);
 	ui->tableWidget_4->setHorizontalHeaderLabels(header);
 	tables.push_back(ui->tableWidget_4);
 
 	ui->tableWidget_5->setColumnCount(2);
-	ui->tableWidget_5->setRowCount(8);
+	ui->tableWidget_5->setRowCount(9);
 	ui->tableWidget_5->setHorizontalHeaderLabels(header);
 	tables.push_back(ui->tableWidget_5);
 
 	ui->tableWidget_6->setColumnCount(2);
-	ui->tableWidget_6->setRowCount(8);
+	ui->tableWidget_6->setRowCount(9);
 	ui->tableWidget_6->setHorizontalHeaderLabels(header);
 	tables.push_back(ui->tableWidget_6);
 
 	ui->tableWidget_7->setColumnCount(2);
-	ui->tableWidget_7->setRowCount(8);
+	ui->tableWidget_7->setRowCount(9);
 	ui->tableWidget_7->setHorizontalHeaderLabels(header);
 	tables.push_back(ui->tableWidget_7);
 
 	ui->tableWidget_8->setColumnCount(2);
-	ui->tableWidget_8->setRowCount(8);
+	ui->tableWidget_8->setRowCount(9);
 	ui->tableWidget_8->setHorizontalHeaderLabels(header);
 	tables.push_back(ui->tableWidget_8);
 
 	ui->tableWidget_9->setColumnCount(2);
-	ui->tableWidget_9->setRowCount(8);
+	ui->tableWidget_9->setRowCount(9);
 	ui->tableWidget_9->setHorizontalHeaderLabels(header);
 	tables.push_back(ui->tableWidget_9);
 
 	ui->tableWidget_10->setColumnCount(2);
-	ui->tableWidget_10->setRowCount(8);
+	ui->tableWidget_10->setRowCount(9);
 	ui->tableWidget_10->setHorizontalHeaderLabels(header);
 	tables.push_back(ui->tableWidget_10);
 }
@@ -223,7 +257,7 @@ void MainWindow::removeLightSlot(Router* router)
 	router->setLable(new QMovie);
 }
 
-void MainWindow::UpdateSlot()
-{
 
+void MainWindow::updateLogsSlot()
+{
 }

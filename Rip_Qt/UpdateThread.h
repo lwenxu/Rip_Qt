@@ -9,6 +9,8 @@
 #include <qwidget.h>
 #include <windows.h>
 #include <QMetaType>
+#include <qdebug.h>
+#include <QString>
 using namespace std;
 
 
@@ -30,9 +32,17 @@ private:
 signals:
 	 void addItemSignal(int i, int j, pair<string, int> dv);
  signals:
+	 void updateItemSignal(int i, int j, pair<string, int> dv);
+ signals:
 	 void addLightSignal(Router* router, QMovie* movie);
  signals:
 	 void removeLightSignal(Router* router);
+ signals:
+	 void updateNeighborTextSignal(const QString& name);
+ signals:
+	 void updateCurrentTextSignal(const QString& name);
+ signals:
+	 void updateLogsSignal();
 
 };
 
