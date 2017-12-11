@@ -38,6 +38,8 @@ MainWindow::MainWindow(QWidget *parent) :QMainWindow(parent), ui(new Ui::MainWin
 	connect(thread, SIGNAL(updateCurrentTextSignal(const QString&)), ui->currentText, SLOT(setText(const QString &)));
 	//更新邻居路由
 	connect(thread, SIGNAL(updateNeighborTextSignal(const QString&)), ui->neighborText, SLOT(setText(const QString &)));
+	//插入日志
+	connect(thread, SIGNAL(updateLogsSignal(const QString&)), ui->logs, SLOT(append(const QString&)));
 
 	
 
@@ -255,9 +257,4 @@ void MainWindow::addLightSlot(Router* router, QMovie* movie)
 void MainWindow::removeLightSlot(Router* router)
 {
 	router->setLable(new QMovie);
-}
-
-
-void MainWindow::updateLogsSlot()
-{
 }

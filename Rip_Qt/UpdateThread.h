@@ -42,7 +42,7 @@ signals:
  signals:
 	 void updateCurrentTextSignal(const QString& name);
  signals:
-	 void updateLogsSignal();
+	 void updateLogsSignal(const QString& log);
 
 };
 

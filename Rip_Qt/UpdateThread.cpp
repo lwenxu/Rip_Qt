@@ -54,6 +54,10 @@ void UpdateThread::run()
 						//qDebug() << "update" << neighbor->m_Name.c_str();
 						int num = dv.first.substr(6, 1)[0] - '0' - 1;
 						emit addItemSignal(neighbor->index, num , dv);
+						char st = '0' + dv.second;
+						string tmp = "insert new rule :" + dv.first + " ------> " + st + " to " +neighbor->getName() +"\n";
+						QString log(tmp.c_str());
+						emit updateLogsSignal(log);
 					}
 					else {//表项存在
 						  //如果路径短就添加
@@ -62,6 +66,10 @@ void UpdateThread::run()
 							//可以进行修改表项的操作,更新操作
 							int num = index->first.substr(6, 1)[0] - '0' - 1;
 							emit updateItemSignal(neighbor->index, num, make_pair(index->first, index->second + 1));
+							char st = '0' + dv.second;
+							string tmp = "update new rule : from " + tables.at(neighbor->index)->item(num, 0)->text().toStdString() +" -----> "+ tables.at(neighbor->index)->item(num, 1)->text().toStdString() +" to "+ dv.first + " ------> " + st + " to " + neighbor->getName() + "\n";
+							QString log(tmp.c_str());
+							emit updateLogsSignal(log);
 							//for (int m = 0; m < 9; ++m)
 							//{
 							//	QString str = tables.at(neighbor->index)->item(m, 0)->text();
