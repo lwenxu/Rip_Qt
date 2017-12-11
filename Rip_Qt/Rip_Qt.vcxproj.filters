@@ -57,6 +57,39 @@
     <ClCompile Include="GeneratedFiles\qrc_Rip.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
+    <ClCompile Include="framelesswindow\framelesswindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_framelesswindow.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_framelesswindow.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="framelesswindow\windowdragger.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_windowdragger.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_windowdragger.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\qrc_darkstyle.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\qrc_framelesswindow.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DarkStyle.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_DarkStyle.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_DarkStyle.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="Rip.ui">
@@ -71,6 +104,24 @@
     <CustomBuild Include="Rip.qrc">
       <Filter>Resource Files</Filter>
     </CustomBuild>
+    <CustomBuild Include="framelesswindow\framelesswindow.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="framelesswindow\framelesswindow.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="framelesswindow\windowdragger.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="darkstyle.qrc">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="framelesswindow.qrc">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="DarkStyle.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GeneratedFiles\ui_Rip.h">
@@ -78,6 +129,9 @@
     </ClInclude>
     <ClInclude Include="Router.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_framelesswindow.h">
+      <Filter>Generated Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -87,5 +141,88 @@
     <Image Include="images\top.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="darkstyle\icon_close.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="darkstyle\icon_undock.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="darkstyle\icon_branch_closed.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="darkstyle\icon_branch_end.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="darkstyle\icon_branch_more.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="darkstyle\icon_branch_open.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="darkstyle\icon_vline.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="darkstyle\icon_checkbox_checked.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="darkstyle\icon_checkbox_indeterminate.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="darkstyle\icon_checkbox_unchecked.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="darkstyle\icon_checkbox_checked_pressed.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="darkstyle\icon_checkbox_indeterminate_pressed.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="darkstyle\icon_checkbox_unchecked_pressed.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="darkstyle\icon_checkbox_checked_disabled.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="darkstyle\icon_checkbox_indeterminate_disabled.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="darkstyle\icon_checkbox_unchecked_disabled.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="darkstyle\icon_radiobutton_checked.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="darkstyle\icon_radiobutton_unchecked.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="darkstyle\icon_radiobutton_checked_pressed.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="darkstyle\icon_radiobutton_unchecked_pressed.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="darkstyle\icon_radiobutton_checked_disabled.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="darkstyle\icon_radiobutton_unchecked_disabled.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\icon_window_minimize.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\icon_window_restore.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\icon_window_maximize.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\icon_window_close.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="darkstyle\darkstyle.qss">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>
