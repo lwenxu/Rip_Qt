@@ -24,14 +24,17 @@ QByteArray readTextFile(const QString &file_path) {
 int main(int argc, char *argv[])
 {
 	QApplication a(argc, argv);
-	QString style_sheet = readTextFile(":/stylesheets/material-blue.qss");
-	a.setStyleSheet(style_sheet);
 
-	//a.setStyle(new DarkStyle);
+	//QString style_sheet = readTextFile(":/stylesheets/material-blue.qss");
+	//a.setStyleSheet(style_sheet);
+
+	a.setStyle(new DarkStyle);
 	//FramelessWindow framelessWindow;
 	//MainWindow *mainWindow = new MainWindow;
 	//framelessWindow.setContent(mainWindow);
 	//framelessWindow.show();
+
+
 
 
 
