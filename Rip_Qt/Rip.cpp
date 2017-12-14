@@ -178,6 +178,7 @@ void MainWindow::on_pushButton_2_clicked()
 		(*it2)->m_DV.clear();
 		(*it2)->initDV();
 	}
+	initCloumn();
 }
 
 void MainWindow::startThread() {
@@ -213,7 +214,7 @@ void MainWindow::beautifyTable(vector<QTableWidget*> tables)
 		(*it)->horizontalHeader()->resizeSection(1, 20);;
 		(*it)->setFocusPolicy(Qt::NoFocus); //去除选中虚线框
 		(*it)->setAlternatingRowColors(true);
-		(*it)->horizontalHeader()->setStyleSheet("QHeaderView::section{background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgb(46,46,46),stop:1 rgb(66,66,66));color: rgb(210,210,210);;padding-left: 4px;border: 1px solid #383838;}");
+		//(*it)->horizontalHeader()->setStyleSheet("QHeaderView::section{background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgb(46,46,46),stop:1 rgb(66,66,66));color: rgb(210,210,210);;padding-left: 4px;border: 1px solid #383838;}");
 
 	}
 	

@@ -90,6 +90,9 @@
     <ClCompile Include="GeneratedFiles\Release\moc_DarkStyle.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
+    <ClCompile Include="GeneratedFiles\qrc_resources.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="Rip.ui">
@@ -121,6 +124,9 @@
     </CustomBuild>
     <CustomBuild Include="DarkStyle.h">
       <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="qt-material-stylesheet\resources.qrc">
+      <Filter>Resource Files</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
@@ -222,6 +228,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="darkstyle\darkstyle.qss">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="qt-material-stylesheet\stylesheets\material-blue.qss">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>

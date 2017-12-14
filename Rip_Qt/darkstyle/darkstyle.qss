@@ -266,6 +266,7 @@ QTreeView::branch:open:has-children:has-siblings{
   border-image:none;
   image:url(:/darkstyle/icon_branch_open.png);
 }
+
 QScrollBar:vertical{
   background:palette(base);
   border-top-right-radius:2px;
